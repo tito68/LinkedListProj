@@ -12,9 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let linkedList = LinkedList<Int>().getDefaultIntList()
+        let converter = DataConverter()
+        let result = converter.arrayOfIntLinkedLists(head: linkedList.head)
+        
+        print(result)
     }
-
-
 }
 
