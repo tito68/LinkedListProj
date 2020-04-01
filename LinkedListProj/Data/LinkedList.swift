@@ -10,6 +10,8 @@ import Foundation
 
 class LinkedList<T> {
     
+    // MARK: - Properties
+    
     var head: Node<T>?
     var last: Node<T>? {
         guard var node = head else { return nil }
@@ -32,6 +34,8 @@ class LinkedList<T> {
         
         return count
     }
+    
+    // MARK: - Methods
 
     func append(_ element: T) {
         let newNode = Node(element: element)
@@ -42,7 +46,34 @@ class LinkedList<T> {
           head = newNode
         }
     }
+    
+    func reverseList() {
+        var current = head
+        var next: Node<T>?
+        var prev: Node<T>?
+        
+        while current != nil {
+            next = current?.next
+            current?.next = prev
+            prev = current
+            current = next
+        }
+        
+        head = prev
+    }
+    
+    func getDefaultIntList() -> LinkedList<Int> {
+        let linkedList = LinkedList<Int>()
+        
+        for i in 1..<15 {
+            linkedList.append(i)
+        }
+        
+        return linkedList
+    }
 }
+
+// MARK: - Print helper
 
 extension LinkedList: CustomStringConvertible where T == Int {
     var description: String {

@@ -9,14 +9,21 @@
 import Foundation
 
 class Node<T> {
+    
+    // MARK: - Properties
+    
     let element: T
     
     var next: Node?
+    
+    // MARK: - Initializer
     
     init(element: T) {
         self.element = element
     }
 }
+
+// MARK: - Print helper
 
 extension Node: CustomStringConvertible where T == Int {
     var description: String {
