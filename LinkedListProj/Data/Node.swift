@@ -11,9 +11,15 @@ import Foundation
 class Node<T> {
     let element: T
     
-    fileprivate(set) var next: Node?
+    var next: Node?
     
     init(element: T) {
         self.element = element
+    }
+}
+
+extension Node: CustomStringConvertible where T == Int {
+    var description: String {
+        return "Node \(element)"
     }
 }
